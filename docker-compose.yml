@@ -8,5 +8,13 @@ services:
     networks:
       - zekrypt-network
 
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+
+    networks:
+      - zekrypt-network
+
 networks:
   zekrypt-network:

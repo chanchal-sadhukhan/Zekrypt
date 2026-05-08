@@ -19,5 +19,25 @@ services:
     stdin_open: true
     tty: true
 
+  frontend:
+    build:
+      target: development
+
+    container_name: zekrypt-frontend-dev
+
+    ports:
+      - "3000:3000"
+
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+
+    env_file:
+      - .env.dev
+
+    stdin_open: true
+    tty: true
+
 volumes:
   maven-cache:
