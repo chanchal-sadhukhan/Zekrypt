@@ -11,7 +11,7 @@ export default function Home() {
   const [files, setFiles] = useState<FileRecord[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/files")
+    fetch("http://localhost:8080/api/v1/files")
       .then((res) => res.json())
       .then((data) => setFiles(data))
       .catch(console.error);
