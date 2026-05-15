@@ -22,5 +22,12 @@ services:
     networks:
       - zekrypt-network
 
+  redis:
+    image: redis:7-alpine
+
+    networks:
+      - zekrypt-network
+
+
 networks:
   zekrypt-network:

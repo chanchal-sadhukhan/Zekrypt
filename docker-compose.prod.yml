@@ -41,5 +41,17 @@ services:
 
     restart: unless-stopped
 
+  redis:
+    container_name: zekrypt-redis-prod
+
+    command: redis-server --appendonly yes
+
+    volumes:
+      - redis-prod-data:/data
+
+    restart: unless-stopped
+
 volumes:
   postgres-prod-data:
+  redis-prod-data:
+  
