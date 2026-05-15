@@ -1,4 +1,4 @@
-package com.zekrypt.backend.controller;
+package com.zekrypt.backend.controller.v1;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HealthController {
 
-    @GetMapping("/api/health")
+    @GetMapping("/api/v1/health")
     public String health() {
-        return "Backend is running updated - hot reloading working fine";
+        return "Backend is running";
     }
 }
