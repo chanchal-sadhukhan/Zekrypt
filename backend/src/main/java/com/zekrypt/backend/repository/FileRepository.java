@@ -1,4 +1,7 @@
 package com.zekrypt.backend.repository;
 
-public class FileRepository {
+import com.zekrypt.backend.entity.FileRecord;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface FileRepository extends JpaRepository<FileRecord, Long> {
 }
