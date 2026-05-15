@@ -27,4 +27,19 @@ services:
       - .env.prod
 
     restart: unless-stopped
-    
+
+  postgres:
+    container_name: zekrypt-postgres-prod
+
+    environment:
+      POSTGRES_DB: zekrypt_prod_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+    volumes:
+      - postgres-prod-data:/var/lib/postgresql/data
+
+    restart: unless-stopped
+
+volumes:
+  postgres-prod-data:

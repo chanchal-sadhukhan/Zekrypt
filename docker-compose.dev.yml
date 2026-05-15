@@ -19,6 +19,9 @@ services:
     stdin_open: true
     tty: true
 
+    depends_on:
+      - postgres
+
   frontend:
     build:
       target: development
@@ -39,5 +42,20 @@ services:
     stdin_open: true
     tty: true
 
+  postgres:
+    container_name: zekrypt-postgres-dev
+
+    environment:
+      POSTGRES_DB: zekrypt_dev_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres-dev-data:/var/lib/postgresql/data
+
 volumes:
   maven-cache:
+  postgres-dev-data:

@@ -15,6 +15,12 @@ services:
 
     networks:
       - zekrypt-network
+  
+  postgres:
+    image: postgres:16-alpine
+
+    networks:
+      - zekrypt-network
 
 networks:
   zekrypt-network:
