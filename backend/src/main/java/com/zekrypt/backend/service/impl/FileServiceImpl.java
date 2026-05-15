@@ -6,7 +6,8 @@ import com.zekrypt.backend.entity.FileRecord;
 import com.zekrypt.backend.repository.FileRepository;
 import com.zekrypt.backend.service.interfaces.FileService;
 import org.springframework.stereotype.Service;
-
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import java.util.List;
 
 @Service
@@ -19,6 +20,7 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
+    @CacheEvict(value = "files", allEntries = true)
     public FileResponse createFile(CreateFileRequest request) {
 
         FileRecord file = new FileRecord();
@@ -33,7 +35,10 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
+    @Cacheable(value = "files")
     public List<FileResponse> getFiles() {
+
+        System.out.println("Fetching files from DB...");
 
         return fileRepository.findAll()
                 .stream()

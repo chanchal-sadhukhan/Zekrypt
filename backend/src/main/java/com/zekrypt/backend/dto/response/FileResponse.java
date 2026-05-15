@@ -1,6 +1,8 @@
 package com.zekrypt.backend.dto.response;
 
-public class FileResponse {
+import java.io.Serializable;
+
+public class FileResponse implements Serializable {
 
     private final Long id;
     private final String fileName;
